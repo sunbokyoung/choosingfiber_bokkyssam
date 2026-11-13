@@ -7,7 +7,7 @@ const gameData = {
     title: "병재의 가을 잠옷 사건🍂",
     characterName: "병재",
     characterEmoji: "👦",
-    image: "images/유병재.jpg",
+    image: "유병재.jpg",
 
     story:
       "슬슬 날씨가 추워지네. 가을맞이 긴팔 긴바지 잠옷 꺼내 입어야겠다." +
@@ -57,7 +57,7 @@ const gameData = {
         correctMessage:
           "정답이에요! 면은 촉감이 부드러워서 속옷, 잠옷, 수건 등에 많이 쓰이죠.",
         points: 10,
-        successImage: "images/치이카와유병재.jpg",
+        successImage: "치이카와유병재.jpg",
         successImageAlt: "면 잠옷을 입어 기분이 좋은 병재씨"
       }
     ]
@@ -67,7 +67,7 @@ const gameData = {
     title: "피치공주의 블라우스 실종 사건",
     characterName: "피치공주",
     characterEmoji: "👸🏻",
-    image: "images/샤넬.jpg",
+    image: "샤넬.jpg",
 
     story:
       "아 엘사 여왕님 결혼식에 초대받아서 엄청난 하객룩을 준비했는데 어디갔지 ..?" +
@@ -143,7 +143,7 @@ const gameData = {
         correctMessage:
           "정답이에요! 키노피오였어요! 마리오 집에 들어가서 피치 공주님의 옷을 찾았습니다. 고생했어요 탐정님~❤️",
         points: 30,
-        successImage: "images/약올리는 키노피오.jpg",
+        successImage: "약올리는 키노피오.jpg",
         successImageAlt: "약올리는 키노피오"
       }
     ]
@@ -153,7 +153,7 @@ const gameData = {
     title: "그린박사 실험실의 비밀🧪",
     characterName: "코난",
     characterEmoji: "🕵🏻‍♂️",
-    image: "images/regeneratehint.jpg",
+    image: "regeneratehint.jpg",
 
     story:
       "앗 여기가 어디지? 세모야? 뭉치야? 장미야? 아무도 없잖아? 그린..박사 실험실..? 나.. 납치된건가.." +
@@ -198,7 +198,7 @@ const gameData = {
       {
         type: "shortAnswer",
         question: "🕵🏻‍♂️: 단면이 네잎클로버이면서 견섬유 대용인 섬유 뭔데 ????",
-        image: "images/regeneratehint2.jpg",
+        image: "regeneratehint2.jpg",
         imageAlt: "비밀번호 힌트와 관련된 추가힌트 사진",
         answer: ["아세테이트"],
         hint: "견섬유와 아세테이트의 단면을 떠올려봅시다!",
@@ -210,7 +210,7 @@ const gameData = {
         type: "shortAnswer",
         question:
           "🐛: 아세테이트가 약한 성질은 정전기와 연관이 있는 성질이에요. 이 성질이 강하면 정전기가 잘 안 생기거든요. 이 성질은 바로 ~",
-        image: "images/비밀의분비밀번호.jpg",
+        image: "비밀의분비밀번호.jpg",
         imageAlt: "비밀번호 힌트와 관련된 추가힌트 사진",
         answer: ["흡습성"],
         hint: "건조하면 정전기가 잘 생기죠!",
@@ -222,7 +222,7 @@ const gameData = {
         type: "shortAnswer",
         question:
           "🐛: 아세테이트는 광택도 좋지만 이 성질이 좋아서 블라우스로도 많이 쓰여요~ 옷감이 모양 있게 샤샥 늘어져 내리는 특성을 의미하는 단어는 바로?",
-        image: "images/드레이프성.jpg",
+        image: "드레이프성.jpg",
         imageAlt: "드레이프성 관련 힌트 사진",
         answer: ["드레이프성"],
         hint: "부드러운 실크 섬유가 스윽 내려져오는 느낌~",
@@ -237,7 +237,7 @@ const gameData = {
         hint: "보너스 점수이기 때문에 힌트는 없닷",
         correctMessage: "정답이에요! 운이 좋군요?🍀",
         points: 30,
-        successImage: "images/frogDr.jpg",
+        successImage: "frogDr.jpg",
         successImageAlt: "실험실에서 탈출에 성공한 코난"
       }
     ]
@@ -247,7 +247,7 @@ const gameData = {
     title: "뽀뽀로와 뿡뿡이의 초심찾기 사건",
     characterName: "뽀뽀로, 뿡뿡이",
     characterEmoji: "🐧🍊",
-    image: "images/늙은뽀로로와뿡뿡이.jpg",
+    image: "늙은뽀로로와뿡뿡이.jpg",
 
     story:
       "🐧: 내 나이 24.. 더 이상 노는 게 제일 좋지 않을 나이 .. 하지만 아이들은 여전히 나를 보며 노는 것을 제일 좋아하는 쉬었음청년펭귄으로 알고있지 .." +
@@ -312,7 +312,7 @@ const gameData = {
         correctMessage:
           "정답이에요! 모든 합성섬유는 탄성이 좋아요~",
         points: 20,
-        successImage: "images/뽀로로뿡뿡이완료.jpg",
+        successImage: "뽀로로뿡뿡이완료.jpg",
         successImageAlt: "문제를 모두 해결한 뽀로로와 뿡뿡이"
       }
     ]
