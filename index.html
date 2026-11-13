@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>꼬미와 함께하는 섬유사건 해결기🐛</title>
+
+  <!-- CSS 파일 연결 -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <div class="score-board">
+    점수: <span id="score">0</span>점</div>
+
+  <!-- 시작 화면 -->
+  <section id="startScreen" class="screen active">
+    <main class="start-card">
+      <div class="detective-wrap" aria-label="애벌레 탐정 꼬미">
+        <div class="caterpillar">
+          <div class="body-circle one"></div>
+          <div class="body-circle two"></div>
+          <div class="body-circle three"></div>
+
+          <div class="head">
+            <div class="eye left"></div>
+            <div class="eye right"></div>
+            <div class="smile"></div>
+            <div class="hat-top"></div>
+            <div class="hat-brim"></div>
+          </div>
+
+          <div class="magnifier"></div>
+        </div>
+
+        <span class="caterpillar-name">탐정 꼬미</span>
+      </div>
+
+      <h1>섬유의 비밀을 찾아서</h1>
+      <p class="subtitle">친구들의 섬유 문제 해결해주기</p>
+
+      <div class="password-box">
+        <p class="hint-text">힌트: 섬유는 영어로 무엇일까? 5글자임!</p>
+
+        <div class="password-row">
+          <input
+            id="passwordInput"
+            type="password"
+            placeholder="비밀번호를 입력하세요"
+            autocomplete="off"
+          />
+          <button id="passwordButton" class="main-button">두둥 입장</button>
+        </div>
+
+        <p id="passwordMessage" class="password-message"></p>
+      </div>
+    </main>
+  </section>
+
+<footer class="site-footer">@bokkyssam</footer>
+
+
+  <!-- 카테고리 선택 화면 -->
+  <section id="categoryScreen" class="screen">
+    <main class="game-container">
+      <div class="top-bar">
+        <h2>꼬미의 섬유 사건 수첩</h2>
+        
+      </div>
+
+      <p class="category-guide">
+        도움이 필요한 친구들의 사건을 선택해 주세요.
+        문제를 모두 해결하면 <strong>사건해결</strong> 표시가 나타납니다.
+      </p>
+
+      <div class="category-grid">
+        <button class="category-card" data-category="plant">
+          <span class="status-badge">사건해결</span>
+          <span class="category-icon">🌿</span>
+          <span class="category-title">병재의 가을잠옷 사건</span>
+          <span class="category-description">
+            병재를 도와 가을잠옷을 선택하는 사건입니다.
+          </span>
+        </button>
+
+        <button class="category-card" data-category="animal">
+          <span class="status-badge">사건해결</span>
+          <span class="category-icon">👚</span>
+          <span class="category-title">블라우스 실종 사건</span>
+          <span class="category-description">
+            피치 공주가 잃어버린 블라우스를 찾는 사건입니다.
+          </span>
+        </button>
+
+        <button class="category-card" data-category="regenerated">
+          <span class="status-badge">사건해결</span>
+          <span class="category-icon">🧵</span>
+          <span class="category-title">그린박사 실험실의 비밀🧪</span>
+          <span class="category-description">
+            천연 재료를 화학적으로 재생한 섬유를 알아봅니다.
+          </span>
+        </button>
+
+        <button class="category-card" data-category="synthetic">
+          <span class="status-badge">사건해결</span>
+          <span class="category-icon">🧪</span>
+          <span class="category-title">합성섬유</span>
+          <span class="category-description">
+            화학적으로 만든 섬유의 성질을 알아보는 사건입니다.
+          </span>
+        </button>
+      </div>
+    </main>
+  </section>
+
+  <!-- 사건 문제 화면 -->
+  <section id="caseScreen" class="screen">
+    <main class="case-layout">
+      <button id="backButton" class="back-button">
+        ← 사건 수첩으로 돌아가기
+      </button>
+
+      <h2 id="caseTitle" class="case-title">병재의 가을잠옷 사건</h2>
+
+      <!-- 자바스크립트가 병재의 이야기를 넣는 영역 -->
+      <div id="storyCard" class="story-card"></div>
+
+      <div class="question-card">
+        <p id="progressText" class="progress"></p>
+        
+        <h3 id="questionText" class="question-text"></h3>
+
+        <!-- 문제별 사진이 들어가는 자리 -->
+         <div id="questionImageBox" class="question-image-box"></div>
+
+        <div id="optionsBox" class="options"></div>
+        
+
+<button id="checkButton" class="check-button">
+  정답 확인
+</button>
+
+<div id="feedbackBox" class="feedback"></div>
+
+
+        <button id="nextButton" class="main-button next-button">
+          다음 문제
+        </button>
+      </div>
+      <div id="successScreen" class="success-screen">
+  <h2 id="successTitle">사건 해결!</h2>
+
+  <img
+    id="successImage"
+    class="success-image"
+    src=""
+    alt=""
+  />
+
+  <p id="successMessage"></p>
+
+  <button id="successBackButton" type="button">
+    사건 수첩으로 돌아가기
+  </button>
+</div>
+<!-- 여기부터 추가 -->
+    <div id="successScreen" class="success-screen">
+      <h2 id="successTitle">사건 해결!</h2>
+
+      <img
+        id="successImage"
+        class="success-image"
+        src=""
+        alt=""
+      />
+
+      <p id="successMessage"></p>
+
+      <button id="successBackButton" type="button">
+        사건 수첩으로 돌아가기
+      </button>
+    </div>
+    <!-- 여기까지 추가 -->
+    </main>
+  </section>
+
+  <!-- JavaScript 파일 연결: body 맨 아래에 두어야 안정적입니다 -->
+  <script src="script.js"></script>
+</body>
+</html>

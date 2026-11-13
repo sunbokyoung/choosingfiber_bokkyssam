@@ -1,0 +1,792 @@
+/* =========================
+   전체 기본 설정
+   ========================= */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: "Pretendard", "Malgun Gothic", Arial, sans-serif;
+  color: #3d2b1f;
+  background:
+    radial-gradient(circle at 20% 15%, #fff4c9 0 8%, transparent 8.5%),
+    radial-gradient(circle at 80% 20%, #dff4db 0 9%, transparent 9.5%),
+    linear-gradient(135deg, #fff8df, #dff3db);
+}
+
+button,
+input {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+/* 화면 전환 */
+.screen {
+  display: none;
+  min-height: 100vh;
+  padding: 24px;
+}
+
+.screen.active {
+  display: flex;
+}
+
+/* =========================
+   시작 화면
+   ========================= */
+#startScreen {
+  align-items: center;
+  justify-content: center;
+}
+
+.start-card {
+  width: min(720px, 100%);
+  padding: 42px 30px;
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.9);
+  border: 4px solid #6a9b4f;
+  border-radius: 30px;
+  box-shadow: 0 12px 0 #b6d4a6;
+}
+
+/* 탐정 꼬미 */
+.detective-wrap {
+  position: relative;
+  width: 185px;
+  height: 185px;
+  margin: 0 auto 14px;
+}
+
+.caterpillar {
+  position: absolute;
+  bottom: 12px;
+  left: 30px;
+  width: 125px;
+  height: 70px;
+}
+
+.body-circle {
+  position: absolute;
+  width: 56px;
+  height: 56px;
+  border: 3px solid #3d7a39;
+  border-radius: 50%;
+  background-color: #8ed45a;
+}
+
+.body-circle.one {
+  bottom: 2px;
+  left: 0;
+}
+
+.body-circle.two {
+  bottom: 1px;
+  left: 35px;
+}
+
+.body-circle.three {
+  bottom: 0;
+  left: 69px;
+}
+
+.head {
+  position: absolute;
+  top: -16px;
+  right: -4px;
+  z-index: 3;
+  width: 70px;
+  height: 70px;
+  border: 3px solid #3d7a39;
+  border-radius: 50%;
+  background-color: #9ce368;
+}
+
+.eye {
+  position: absolute;
+  top: 25px;
+  width: 8px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: #2d2a24;
+}
+
+.eye.left {
+  left: 22px;
+}
+
+.eye.right {
+  right: 20px;
+}
+
+.smile {
+  position: absolute;
+  bottom: 15px;
+  left: 24px;
+  width: 24px;
+  height: 12px;
+  border-bottom: 3px solid #2d2a24;
+  border-radius: 0 0 20px 20px;
+}
+
+/* 탐정 모자 */
+.hat-top {
+  position: absolute;
+  top: -35px;
+  right: 4px;
+  z-index: 5;
+  width: 49px;
+  height: 32px;
+  border: 3px solid #4b3621;
+  border-bottom: 0;
+  border-radius: 50% 50% 12px 12px;
+  background-color: #8b5a2b;
+}
+
+.hat-brim {
+  position: absolute;
+  top: -10px;
+  right: -7px;
+  z-index: 6;
+  width: 72px;
+  height: 14px;
+  border: 3px solid #4b3621;
+  border-radius: 50%;
+  background-color: #a8733d;
+}
+
+/* 돋보기 */
+.magnifier {
+  position: absolute;
+  right: -12px;
+  bottom: 1px;
+  width: 56px;
+  height: 56px;
+  border: 7px solid #507cb5;
+  border-radius: 50%;
+  background-color: rgba(190, 232, 255, 0.65);
+  transform: rotate(-12deg);
+}
+
+.magnifier::after {
+  content: "";
+  position: absolute;
+  right: -30px;
+  bottom: -21px;
+  width: 40px;
+  height: 11px;
+  border-radius: 10px;
+  background-color: #88552c;
+  transform: rotate(45deg);
+}
+
+.caterpillar-name {
+  display: inline-block;
+  margin-top: 138px;
+  padding: 5px 11px;
+  color: white;
+  font-size: 14px;
+  font-weight: bold;
+  border-radius: 99px;
+  background-color: #4d8739;
+}
+
+h1 {
+  margin: 10px 0 8px;
+  color: #356b2d;
+  font-size: clamp(30px, 5vw, 48px);
+}
+
+.subtitle {
+  margin: 0 0 28px;
+  color: #76512e;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.password-box {
+  width: min(420px, 100%);
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #fffbea;
+  border: 2px dashed #d19b4b;
+  border-radius: 18px;
+}
+
+.hint-text {
+  margin: 0 0 10px;
+  color: #7b552d;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.password-row {
+  display: flex;
+  gap: 8px;
+}
+
+#passwordInput {
+  flex: 1;
+  min-width: 0;
+  padding: 12px 14px;
+  border: 2px solid #caa76c;
+  border-radius: 10px;
+  outline: none;
+}
+
+#passwordInput:focus {
+  border-color: #5f9e44;
+}
+
+.main-button {
+  padding: 12px 18px;
+  color: white;
+  font-weight: bold;
+  border: 0;
+  border-radius: 10px;
+  background-color: #5f9e44;
+}
+
+.main-button:hover {
+  background-color: #477c32;
+}
+
+.password-message {
+  min-height: 22px;
+  margin: 10px 0 0;
+  color: #c44b3e;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+/* =========================
+   카테고리 화면
+   ========================= */
+#categoryScreen {
+  flex-direction: column;
+  align-items: center;
+}
+
+.game-container {
+  width: min(1050px, 100%);
+}
+
+.top-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  margin-bottom: 22px;
+  padding: 15px 18px;
+  background-color: rgba(255, 255, 255, 0.9);
+  border: 2px solid #a8c590;
+  border-radius: 16px;
+}
+
+.top-bar h2 {
+  margin: 0;
+  color: #356b2d;
+  font-size: 22px;
+}
+
+.category-guide {
+  margin: 0 0 18px;
+  line-height: 1.6;
+}
+
+.category-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.category-card {
+  position: relative;
+  min-height: 190px;
+  padding: 24px;
+  text-align: left;
+  border: 3px solid #a7c98b;
+  border-radius: 20px;
+  background-color: rgba(255, 255, 255, 0.92);
+  transition: transform 0.15s ease, background-color 0.15s ease;
+}
+
+.category-card:hover:not(:disabled) {
+  transform: translateY(-4px);
+  background-color: #f7ffed;
+}
+
+.category-icon {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 42px;
+}
+
+.category-title {
+  display: block;
+  margin-bottom: 7px;
+  color: #37682f;
+  font-size: 23px;
+  font-weight: bold;
+}
+
+.category-description {
+  color: #684c38;
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+.status-badge {
+  position: absolute;
+  top: 17px;
+  right: 17px;
+  display: none;
+  padding: 7px 10px;
+  color: white;
+  font-size: 13px;
+  font-weight: bold;
+  border-radius: 9px;
+  background-color: #4c9948;
+}
+
+.category-card.cleared {
+  opacity: 0.5;
+  cursor: not-allowed;
+  filter: grayscale(0.5);
+  border-color: #4c9948;
+  background-color: #effbe9;
+}
+
+.category-card.cleared:hover {
+  transform: none;
+}
+
+.category-card.cleared .status-badge {
+  display: block;
+}
+
+/* =========================
+   문제 화면
+   ========================= */
+#caseScreen {
+  flex-direction: column;
+  align-items: center;
+}
+
+.case-layout {
+  width: min(900px, 100%);
+}
+
+.back-button {
+  margin-bottom: 15px;
+  padding: 9px 13px;
+  color: #4d6f39;
+  font-weight: bold;
+  border: 2px solid #88b36b;
+  border-radius: 9px;
+  background-color: #f5ffed;
+}
+
+.case-title {
+  margin: 0 0 15px;
+  color: #356b2d;
+  font-size: 30px;
+}
+
+.story-card,
+.question-card {
+  padding: 24px;
+  border: 3px solid #b8cf9f;
+  border-radius: 20px;
+  background-color: rgba(255, 255, 255, 0.93);
+}
+
+/* 
+   사진 → 이름 → 글 순서로 세로 배치.
+   모든 카테고리와 모든 캐릭터에 공통 적용.
+*/
+.story-card {
+  display: flex;
+  flex-direction: column; /* 사진 → 이름 → 글 순서 */
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 18px;
+}
+
+
+/* 캐릭터 사진/이모티콘/이름을 감싸는 영역 */
+.character {
+  flex: none;
+  width: 100%;
+  text-align: center;
+}
+
+/* 
+   이모티콘 2개도 보이도록 기존 78px보다 크게 조정.
+   글자가 넘치지 않도록 줄바꿈을 막고 크기를 축소함.
+*/
+.character-face {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 112px;
+  height: 112px;
+  margin: 0 auto 8px;
+  padding: 6px;
+
+  overflow: hidden;
+  border: 3px solid #4d7040;
+  border-radius: 50%;
+  background-color: #b9e29a;
+
+  font-size: 30px;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+
+/* 실제 인물 사진이 들어오는 경우 */
+.story-image {
+  display: block;
+  width: min(100%, 600px);
+  height: auto;
+  max-height: 360px;
+  margin: 0 auto;
+  object-fit: cover;
+  border: 3px solid #4a8f70;
+  border-radius: 14px;
+}
+
+/* 캐릭터 이름 */
+.character-name,
+.story-character {
+  margin: 0;
+  color: #396932;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+/* 소개 글: 사진과 이름의 아래에 표시 */
+.story-text {
+  width: 100%;
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.8;
+  white-space: pre-line;
+}
+
+
+.progress {
+  margin: 0 0 8px;
+  color: #7a583a;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.question-text {
+  margin: 0 0 20px;
+  font-size: 21px;
+  line-height: 1.6;
+}
+
+.options {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.option-button {
+  padding: 15px;
+  color: #513f30;
+  font-weight: bold;
+  border: 2px solid #d6bc90;
+  border-radius: 12px;
+  background-color: #fffcf4;
+}
+
+.option-button:hover:not(:disabled) {
+  border-color: #5e9f48;
+  background-color: #effbe9;
+}
+
+.option-button:disabled {
+  cursor: not-allowed;
+}
+
+/* 복수 선택 문제 정답 확인 버튼 */
+.check-button {
+  display: none;
+  width: 100%;
+  margin-top: 16px;
+  padding: 14px;
+  color: white;
+  font-weight: bold;
+  border: 0;
+  border-radius: 12px;
+  background-color: #527dba;
+}
+
+.check-button:hover {
+  background-color: #3f6599;
+}
+
+.check-button.show {
+  display: block;
+}
+
+/* 복수 선택 문제에서 선택한 보기 */
+.option-button.selected {
+  color: #264e7d;
+  border-color: #527dba;
+  background-color: #dcecff;
+}
+
+.feedback {
+  display: none;
+  margin-top: 18px;
+  padding: 16px;
+  font-weight: bold;
+  line-height: 1.6;
+  border-radius: 12px;
+}
+
+.feedback.show {
+  display: block;
+}
+
+.feedback.correct {
+  color: #216c31;
+  border: 2px solid #78b77b;
+  background-color: #edfaeb;
+}
+
+.feedback.wrong {
+  color: #9b472e;
+  border: 2px solid #d99877;
+  background-color: #fff0e9;
+}
+
+.next-button {
+  display: none;
+  margin-top: 14px;
+}
+
+.next-button.show {
+  display: inline-block;
+}
+
+/* =========================
+   문제 참고 사진
+   ========================= */
+.question-image-box {
+  display: none;
+  margin: 0 0 20px;
+  text-align: center;
+}
+
+.question-image-box.show {
+  display: block;
+}
+
+.question-image {
+  display: block;
+  width: 100%;
+  max-width: 420px;
+  max-height: 300px;
+  margin: 0 auto;
+  object-fit: contain;
+  border: 3px solid #d6bc90;
+  border-radius: 14px;
+  background-color: white;
+}
+
+.image-error {
+  margin: 0;
+  padding: 12px;
+  color: #a33d2f;
+  font-weight: bold;
+  border: 2px solid #d99877;
+  border-radius: 10px;
+  background-color: #fff0e9;
+}
+
+/* =========================
+   주관식 문제
+   ========================= */
+.short-answer-area {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+#shortAnswerInput {
+  flex: 1;
+  min-width: 0;
+  padding: 12px 14px;
+  border: 2px solid #4caf50;
+  border-radius: 10px;
+  font-size: 16px;
+}
+
+#submitAnswerBtn {
+  padding: 12px 18px;
+  color: white;
+  font-size: 16px;
+  border: none;
+  border-radius: 10px;
+  background-color: #4caf50;
+}
+
+#submitAnswerBtn:hover {
+  background-color: #388e3c;
+}
+
+/* =========================
+   점수판 및 푸터
+   ========================= */
+.score-board {
+  position: fixed;
+  top: 16px;
+  right: 16px;
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 14px;
+  color: #355b3b;
+  font-size: 15px;
+  font-weight: 700;
+  border: 2px solid #6d8b70;
+  border-radius: 12px;
+  background-color: #fffdf5;
+}
+
+.score-board #score {
+  color: #e26d5a;
+  font-size: 18px;
+}
+
+.site-footer {
+  position: fixed;
+  right: 0;
+  bottom: 12px;
+  left: 0;
+  z-index: 100;
+  pointer-events: none;
+  color: #6d8b70;
+  font-size: 14px;
+  font-weight: 700;
+  text-align: center;
+  letter-spacing: 0.4px;
+}
+
+/* =========================
+   사건 해결 성공 화면
+   ========================= */
+.success-screen {
+  display: none;
+  padding: 24px 16px;
+  text-align: center;
+}
+
+.success-screen.show {
+  display: block;
+}
+
+.success-screen h2 {
+  margin-bottom: 12px;
+}
+
+.success-image {
+  display: block;
+  width: min(100%, 420px);
+  max-height: 420px;
+  margin: 20px auto;
+  object-fit: contain;
+  border: 3px solid #4d9b4c;
+  border-radius: 16px;
+}
+
+#successMessage {
+  margin-bottom: 18px;
+  line-height: 1.7;
+}
+
+#successBackButton {
+  margin-top: 16px;
+  padding: 12px 20px;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 10px;
+  background-color: #4d9b4c;
+}
+
+/* =========================
+   휴대폰 화면
+   ========================= */
+@media (max-width: 650px) {
+  .screen {
+    padding: 14px;
+  }
+
+  .start-card {
+    padding: 30px 18px;
+  }
+
+  .password-row,
+  .top-bar,
+  .short-answer-area {
+    flex-direction: column;
+  }
+
+  .password-row .main-button,
+  #submitAnswerBtn {
+    width: 100%;
+  }
+
+  .category-grid,
+  .options {
+    grid-template-columns: 1fr;
+  }
+
+  .top-bar {
+    align-items: stretch;
+  }
+
+  .case-title {
+    font-size: 25px;
+  }
+
+  .question-text {
+    font-size: 18px;
+  }
+
+  .story-card,
+  .question-card {
+    padding: 18px;
+  }
+
+  .character-face {
+    width: 104px;
+    height: 104px;
+    font-size: 30px;
+  }
+
+  .story-image {
+    max-height: 280px;
+  }
+
+  .score-board {
+    top: 10px;
+    right: 10px;
+    padding: 8px 11px;
+    font-size: 13px;
+  }
+}
