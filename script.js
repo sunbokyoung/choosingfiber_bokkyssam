@@ -135,7 +135,7 @@ const gameData = {
       {
         question:
           "🐛: 휴 드디어 마리오 집에 도착했다. 아 비밀번호 있어서 못 들어가잖아 !!(대노) 비밀번호 힌트가 있네? 어디 보자 '나의 사랑하는 버섯 친구의 이름 ..?",
-        image: "images/kinopio.jpg",
+        image: "kinopio.jpg",
         imageAlt: "비밀번호 힌트와 관련된 키노피오 사진",
         options: ["키노피오", "키노피코", "키노피자"],
         answer: "키노피오",
