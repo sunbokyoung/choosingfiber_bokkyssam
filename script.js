@@ -210,8 +210,6 @@ const gameData = {
         type: "shortAnswer",
         question:
           "🐛: 아세테이트가 약한 성질은 정전기와 연관이 있는 성질이에요. 이 성질이 강하면 정전기가 잘 안 생기거든요. 이 성질은 바로 ~",
-        image: "비밀의분비밀번호.jpg",
-        imageAlt: "비밀번호 힌트와 관련된 추가힌트 사진",
         answer: ["흡습성"],
         hint: "건조하면 정전기가 잘 생기죠!",
         correctMessage:
@@ -232,6 +230,8 @@ const gameData = {
       {
         question:
           "🐛: 흡습성과 드레이프성 모두 찾았어요! 어서 비밀번호를 누르고 탈출해요 코난님! 비밀번호가 '흡드'인지 '드흡'인지 모르겠어. 어떤 거지?",
+          image: "비밀의분비밀번호.jpg",
+        imageAlt: "비밀번호 힌트와 관련된 추가힌트 사진",
         options: ["흡드", "드흡"],
         answer: ["드흡"],
         hint: "보너스 점수이기 때문에 힌트는 없닷",
@@ -627,12 +627,13 @@ function isCurrentQuestionLast() {
   );
 }
 
-/* 마지막 문제를 정답으로 풀었을 때만 true 저장 */
+/* 마지막 문제 정답 여부 저장 */
 function saveLastQuestionResult(isCorrect) {
-  if (isCurrentQuestionLast() && isCorrect) {
-    lastQuestionCleared = true;
+  if (isCurrentQuestionLast()) {
+    lastQuestionCleared = isCorrect;
   }
 }
+
 
 /* 복수 선택 문제 채점 */
 function checkMultipleAnswer() {
@@ -841,12 +842,15 @@ nextButton.addEventListener("click", function () {
   const isLastQuestion =
     currentQuestionIndex === category.questions.length - 1;
 
-  if (isLastQuestion) {
-    if (!lastQuestionCleared) {
-      alert("마지막 문제의 정답을 확인해 주세요.");
-      return;
-    }
+  /* 마지막 문제가 아니면 다음 문제로 이동 */
+  if (!isLastQuestion) {
+    currentQuestionIndex += 1;
+    renderQuestion();
+    return;
+  }
 
+  /* 마지막 문제를 맞혔을 때만 성공 사진 표시 */
+  if (lastQuestionCleared) {
     if (question.successImage) {
       showSuccessPhoto(question);
     } else {
@@ -856,9 +860,14 @@ nextButton.addEventListener("click", function () {
     return;
   }
 
-  currentQuestionIndex += 1;
-  renderQuestion();
+  /* 마지막 문제를 틀렸어도 막히지 않고 사건 수첩으로 복귀 */
+  alert(
+    "마지막 문제를 틀렸어요. 정답을 확인했으니 사건 수첩으로 돌아갈게요!"
+  );
+
+  showScreen(categoryScreen);
 });
+
 
 /* 성공 사진 화면 표시 */
 function showSuccessPhoto(question) {
