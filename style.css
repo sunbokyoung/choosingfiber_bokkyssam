@@ -790,3 +790,51 @@ h1 {
     font-size: 13px;
   }
 }
+
+.final-score-message {
+  white-space: pre-line;
+  display: none;
+  margin: 16px 0 20px;
+  padding: 16px;
+  border: 2px solid #7fa36d;
+  border-radius: 14px;
+  background-color: #f5f9e9;
+  color: #486b3e;
+  font-size: 18px;
+  font-weight: 700;
+  text-align: center;
+}
+
+.final-score-message.show {
+  display: block;
+}
+
+.final-result-box {
+  display: none;
+  margin: 16px 0 20px;
+  padding: 18px;
+  border: 2px solid #7fa36d;
+  border-radius: 16px;
+  background-color: #f5f9e9;
+  text-align: center;
+}
+
+.final-result-box.show {
+  display: block;
+}
+
+.final-score-message {
+  margin: 0 0 14px;
+  color: #486b3e;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.6;
+}
+
+.final-kkomi-image {
+  display: block;
+  width: min(100%, 360px);
+  margin: 0 auto;
+  border-radius: 12px;
+  object-fit: cover;
+}
