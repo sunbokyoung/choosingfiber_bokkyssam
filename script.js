@@ -849,7 +849,7 @@ nextButton.addEventListener("click", function () {
     return;
   }
 
-  /* 마지막 문제를 맞혔을 때만 성공 사진 표시 */
+  /* 마지막 문제를 맞힌 경우 */
   if (lastQuestionCleared) {
     if (question.successImage) {
       showSuccessPhoto(question);
@@ -860,13 +860,13 @@ nextButton.addEventListener("click", function () {
     return;
   }
 
-  /* 마지막 문제를 틀렸어도 막히지 않고 사건 수첩으로 복귀 */
-  alert(
-    "마지막 문제를 틀렸어요. 정답을 확인했으니 사건 수첩으로 돌아갈게요!"
+  /* 마지막 문제를 틀려도 챕터 마감 */
+  finishCategory(
+    "마지막 문제는 아쉬웠지만, 정답을 확인했으니 사건을 마감했어요!\n" +
+    "꼬미가 사건 수첩에 '사건해결' 도장을 찍었어요."
   );
-
-  showScreen(categoryScreen);
 });
+
 
 
 /* 성공 사진 화면 표시 */
@@ -901,7 +901,7 @@ function showSuccessPhoto(question) {
 }
 
 /* 사건 완료 및 수첩 복귀 */
-function finishCategory() {
+function finishCategory(message) {
   const card = document.querySelector(
     `.category-card[data-category="${currentCategory}"]`
   );
@@ -911,13 +911,16 @@ function finishCategory() {
   successScreen.classList.remove("show");
 
   alert(
-    gameData[currentCategory].title +
-      " 해결 완료!\n" +
-      "꼬미가 사건 수첩에 '사건해결' 도장을 찍었어요."
+    message ||
+      gameData[currentCategory].title +
+        " 해결 완료!\n" +
+        "꼬미가 사건 수첩에 '사건해결' 도장을 찍었어요."
   );
 
   showScreen(categoryScreen);
 }
+
+
 
 /* 일반 뒤로가기 */
 backButton.addEventListener("click", function () {
