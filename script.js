@@ -908,7 +908,16 @@ function finishCategory(message) {
     `.category-card[data-category="${currentCategory}"]`
   );
 
-card.classList.add("cleared");
+  card.classList.add("cleared");
+
+  showScreen(categoryScreen);
+
+  if (message) {
+    alert(message);
+  }
+
+  checkAllCategoriesCleared();
+}
 
 /* 모든 사건 완료 여부 및 최종 결과 표시 */
 function checkAllCategoriesCleared() {
@@ -935,8 +944,6 @@ function checkAllCategoriesCleared() {
     finalResultBox.classList.remove("show");
   }
 }
-
-
 
 /* 일반 뒤로가기 */
 backButton.addEventListener("click", function () {
