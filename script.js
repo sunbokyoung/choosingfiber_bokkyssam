@@ -340,6 +340,8 @@ const passwordButton = document.getElementById("passwordButton");
 const passwordMessage = document.getElementById("passwordMessage");
 
 const scoreElement = document.getElementById("score");
+const finalScoreMessage = document.getElementById("finalScoreMessage");
+const finalResultBox = document.getElementById("finalResultBox");
 
 const caseTitle = document.getElementById("caseTitle");
 const storyCard = document.getElementById("storyCard");
@@ -906,18 +908,32 @@ function finishCategory(message) {
     `.category-card[data-category="${currentCategory}"]`
   );
 
-  card.classList.add("cleared");
+card.classList.add("cleared");
 
-  successScreen.classList.remove("show");
-
-  alert(
-    message ||
-      gameData[currentCategory].title +
-        " 해결 완료!\n" +
-        "꼬미가 사건 수첩에 '사건해결' 도장을 찍었어요."
+/* 모든 사건 완료 여부 및 최종 결과 표시 */
+function checkAllCategoriesCleared() {
+  const allCards = document.querySelectorAll(".category-card");
+  const clearedCards = document.querySelectorAll(
+    ".category-card.cleared"
   );
 
-  showScreen(categoryScreen);
+  const allCleared =
+    allCards.length > 0 &&
+    allCards.length === clearedCards.length;
+
+  if (allCleared) {
+    finalScoreMessage.textContent =
+      "모든 사건 해결 완료!\n" +
+      "꼬미가 탐정님께 하트를 보냈어요.\n" +
+      "최종 점수는 " +
+      totalScore +
+      "점입니다!";
+
+    finalResultBox.classList.add("show");
+  } else {
+    finalScoreMessage.textContent = "";
+    finalResultBox.classList.remove("show");
+  }
 }
 
 
